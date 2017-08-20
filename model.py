@@ -36,7 +36,6 @@ X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(
 #Create model
 model = Sequential()
 model.add(Dense(12, input_dim=8, init='uniform', activation='relu'))
-model.add(Dense(8, init='uniform', activation='relu'))
 model.add(Dense(1, init='uniform', activation='sigmoid'))
 
 # Compile model
@@ -47,8 +46,8 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 
 model.fit(X_train, Y_train, nb_epoch=200, batch_size=10)
 
-scores = model.evaluate(X_validation,Y_validation)
-print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
+# scores = model.evaluate(X_validation,Y_validation)
+# print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
 # Serialize model to JSON
 model_json = model.to_json()
