@@ -1,6 +1,7 @@
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
+from keras import optimizers
 
 from sklearn import model_selection
 
@@ -35,16 +36,16 @@ X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(
 
 #Create model
 model = Sequential()
-model.add(Dense(12, input_dim=8, init='uniform', activation='relu'))
+model.add(Dense(32, input_dim=8, init='uniform', activation='relu'))
+model.add(Dense(16, init='uniform', activation='relu'))
 model.add(Dense(1, init='uniform', activation='sigmoid'))
 
 # Compile model
-
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fit the model
 
-model.fit(X_train, Y_train, nb_epoch=200, batch_size=10)
+model.fit(X_train, Y_train, nb_epoch=700, batch_size=10)
 
 # scores = model.evaluate(X_validation,Y_validation)
 # print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
