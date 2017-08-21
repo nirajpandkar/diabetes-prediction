@@ -1,8 +1,9 @@
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
+from keras.callbacks import TensorBoard
 from keras import optimizers
-
+import time
 from sklearn import model_selection
 
 import numpy
@@ -43,9 +44,11 @@ model.add(Dense(1, init='uniform', activation='sigmoid'))
 # Compile model
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-# Fit the model
+# Set log directory for tensorboard
+tensorboard = TensorBoard(log_dir="logs", histogram_freq=0, write_graph=True, write_images=True)
 
-model.fit(X_train, Y_train, nb_epoch=700, batch_size=10)
+# Fit the model
+model.fit(X_train, Y_train, nb_epoch=700, batch_size=10, callbacks=[tensorboard])
 
 # scores = model.evaluate(X_validation,Y_validation)
 # print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
