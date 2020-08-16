@@ -2,7 +2,7 @@
 
 > Onset of diabetes binary classification.
 
-Partial implementation of MLP as described in this [paper](http://www.yildiz.edu.tr/~tulay/publications/Icann-Iconip2003-2.pdf).
+Partial implementation of MLP as described in this [paper](https://www.researchgate.net/profile/Tuelay_Yildirim2/publication/228615564_Medical_diagnosis_on_Pima_Indian_diabetes_using_general_regression_neural_networks/links/541926760cf2218008bf5181/Medical-diagnosis-on-Pima-Indian-diabetes-using-general-regression-neural-networks.pdf).
 
 Dataset - [pima-indians-diabetes](https://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes)
 
